@@ -3,7 +3,7 @@
 
     <section class="navbar-2">
       <div class="top">
-        <i class='bx bx-menu'></i>
+        <i class='bx bx-menu' @click="ouvert"></i>
         <div class="compte-users">
           <div class="profile">
             <i class='bx bxs-user'></i>
@@ -12,12 +12,12 @@
           <div class="menu">
             <ul>
               <li>
-                <i class='bx bxs-file-blank'></i>
+                <i class='bx bx-edit-alt'></i>
                 <a href="#">My profile</a>
               </li>
               <li>
-                <i class='bx bxs-file-blank'></i>
-                <a href="#">My profile</a>
+                <i class='bx bx-log-in-circle'></i>
+                <a href="#">Deconnexion</a>
               </li>
 
 
@@ -159,6 +159,13 @@ export default {
   },
 
   methods: {
+    async ouvert(){
+    console.log("ouvert");
+    let sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("close");
+    
+    
+    }
 
   },
   setup() {
@@ -181,15 +188,16 @@ export default {
         });
 
       }
-      let sidebar = document.querySelector(".sidebar");
+      // let sidebar = document.querySelector(".sidebar");
       let sidebarBtn = document.querySelector(".bx-menu");
       console.log(sidebarBtn);
-      if (window.screen.width >= 768) {
-        sidebar.classList.toggle("close");
-      }
-      sidebarBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-      });
+      // if (window.screen.width >= 768) {
+      //   sidebar.classList.toggle("close");
+      // }
+      // sidebarBtn.addEventListener("click", () => {
+      //   console.log('close');
+      //   sidebar.classList.toggle("close");
+      // });
 
     })
 
@@ -260,7 +268,7 @@ export default {
   transition: 0.5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 100;
+  z-index: 101;
 
 
 }
@@ -307,6 +315,7 @@ export default {
   color: var(--gris2);
   width: 100%;
   font-family: 'Open Sans', sans-serif;
+  margin-left: 5px;
 
 }
 
@@ -553,7 +562,7 @@ export default {
   height: 100vh;
   left: 230px;
   width: calc(100% - 230px);
-  /* transition: all 0.5s ease; */
+  /* border: 1px solid blue; */
 }
 
 .sidebar.close~.home-section {
