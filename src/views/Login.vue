@@ -1,16 +1,16 @@
 <template>
     <div class="general">
-        <Navbar/>
-        
+        <Navbar/> 
         <ComponentLogin/>
     </div>
   
 </template>
 
 <script>
-
 import ComponentLogin from '@/components/componentLogin.vue';
 import Navbar from '@/components/componentNavbar.vue';
+
+
 
 export default {
     name: 'CpLogin',

@@ -4,7 +4,7 @@
     <section class="navbar-2">
       <div class="top">
         <i class='bx bx-menu' @click="ouvert"></i>
-        <div class="compte-users">
+        <div class="compte-users" @click="profil">
           <div class="profile">
             <i class='bx bxs-user'></i>
             <span>Mon compte</span>
@@ -17,7 +17,7 @@
               </li>
               <li>
                 <i class='bx bx-log-in-circle'></i>
-                <a href="#">Deconnexion</a>
+                <a href="#" @click="logout">Deconnexion</a>
               </li>
 
 
@@ -41,7 +41,7 @@
           </ul>
         </li>
         <li>
-          <div class="iocn-link">
+          <div class="iocn-link" @submit=" arrow">
             <a href="#">
               <i class='bx bxs-cube'></i>
               <span class="link_name">Services</span>
@@ -56,7 +56,7 @@
           </ul>
         </li>
         <li>
-          <div class="iocn-link">
+          <div class="iocn-link" @submit=" arrow">
             <a href="#">
               <i class='bx bx-book-alt'></i>
               <span class="link_name">Users</span>
@@ -145,6 +145,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios';
 export default {
   name: 'CptDashboard',
 
@@ -163,21 +165,37 @@ export default {
     console.log("ouvert");
     let sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("close");
+    },
+    async profil(){
+      const toggleMenu = document.querySelector(".menu")
+        toggleMenu.classList.toggle('active')
     
     
+    },
+    async arrow(){
+      console.log("arrow");
+    
+    },
+     logout(){
+      axios.get("/auth/api/logout")
+      .then(res =>{
+        console.log('res',res);
+      })
+      // this.$store.dispatch('remove_simro_admin') 
+      // this.$router.push('/')
+      console.log('bon');
     }
 
   },
+  computed: {
+  
+    ...mapGetters([
+      'getSimro_admin'
+
+    ])
+  },
   setup() {
     document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.compte-users')
-      menuToggle.addEventListener("click", () => {
-        const toggleMenu = document.querySelector(".menu")
-        toggleMenu.classList.toggle('active')
-
-      })
-
-
       const icon = document.querySelectorAll('.iocn-link')
 
       for (let j = 0; j < icon.length; j++) {
@@ -293,7 +311,7 @@ export default {
 
 .navbar-2 .top .compte-users .menu ul li {
   list-style: none;
-  padding: 3px 0;
+  padding: 3px ;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;

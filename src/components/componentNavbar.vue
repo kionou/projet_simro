@@ -17,7 +17,7 @@
                     <li><a href="#">Produts</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact </a></li>
-
+                    {{ $store.getters.getSimro_admin }}
                 </ul>
             </div>
 
@@ -26,11 +26,13 @@
 </template>
 
 <script>
+// import { useStore } from 'vuex';
 export default {
     name: 'ComponentNavbar',
 
     data() {
         return {
+            test:""
 
         };
     },
@@ -43,6 +45,10 @@ export default {
 
     },
     setup() {
+
+        // const store = useStore()
+        // this.test = store.getters.getSimro_admin
+        // console.log(this.test);
         document.addEventListener('DOMContentLoaded',()=>{
 
             const hamburger = document.querySelector(".hamburger");

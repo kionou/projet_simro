@@ -38,7 +38,7 @@
     box-shadow: 0 15px 60px rgba(0, 0, 0, 5%);
     cursor: pointer;
     /* border: 1px solid red; */
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     background-color: #1abc9c;
     color: var(--blanc);

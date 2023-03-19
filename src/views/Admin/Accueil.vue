@@ -44,7 +44,7 @@ top: 0;
 /* border: 1px solid blue; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  grid-gap: 35px;
+  grid-gap: 8px;
   margin: 0 auto;
   padding: 10px ;
   max-width: 1140px;
