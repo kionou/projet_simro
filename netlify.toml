@@ -1,4 +1,6 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/search"
+  to = "https://simro-kberthe.pythonanywhere.com"
   status = 200
+  force = true
+  headers = {X-From = "Netlify"}
