@@ -17,7 +17,7 @@
                     <li><a href="#">Produts</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact </a></li>
-                    {{ $store.getters.getSimro_admin }}
+                    <!-- {{ $store.getters.getSimro_admin }} -->
                 </ul>
             </div>
 
@@ -38,20 +38,8 @@ export default {
     },
 
     mounted() {
-
-    },
-
-    methods: {
-
-    },
-    setup() {
-
-        // const store = useStore()
-        // this.test = store.getters.getSimro_admin
-        // console.log(this.test);
-        document.addEventListener('DOMContentLoaded',()=>{
-
-            const hamburger = document.querySelector(".hamburger");
+        
+        const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".nav-link");
         const links = document.querySelectorAll(".nav-link li");
 
@@ -65,6 +53,34 @@ export default {
             //Hamburger Animation
             hamburger.classList.toggle("toggle");
         });
+        
+
+    },
+
+    methods: {
+
+    },
+    setup() {
+
+        // const store = useStore()
+        // this.test = store.getters.getSimro_admin
+        // console.log(this.test);
+        document.addEventListener('DOMContentLoaded',()=>{
+
+        //     const hamburger = document.querySelector(".hamburger");
+        // const navLinks = document.querySelector(".nav-link");
+        // const links = document.querySelectorAll(".nav-link li");
+
+        // hamburger.addEventListener('click', () => {
+        //     //Animate Links
+        //     navLinks.classList.toggle("open");
+        //     links.forEach(link => {
+        //         link.classList.toggle("fade");
+        //     });
+
+        //     //Hamburger Animation
+        //     hamburger.classList.toggle("toggle");
+        // });
         
         
         })

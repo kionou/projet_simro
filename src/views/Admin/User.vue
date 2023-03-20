@@ -1,12 +1,16 @@
 <template>
     <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci placeat facilis minus ad aliquam. Sit saepe iure blanditiis officiis repellendus.
+        <Header/>
+        <Tableau/>
     </div>
 </template>
 
 <script>
+import Header from '@/components/Admin/header.vue';
+import Tableau from '@/components/Admin/tableau.vue';
 export default {
-    name: 'ProjetSimroTable',
+    name: 'ViewUser',
+    components:{Header , Tableau},
 
     data() {
         return {

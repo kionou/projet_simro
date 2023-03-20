@@ -37,7 +37,8 @@ export default {
     --red:#ff0000;
     --titre: 35px;
     --paragraphe: 18px;
-    --raduis:6px
+    --raduis:6px;
+    --box-shadow: 0px 0px 10px #888888;
  
   }
 
@@ -45,11 +46,12 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;   
+      
 }
-body{
+body , html{
 
 background-color: var(--bg);
+font-family: 'Open Sans', sans-serif; 
 
 }
 </style>

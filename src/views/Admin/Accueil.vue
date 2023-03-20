@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="container-card">
-            <Card v-for="card in 6" :key="card.id"/>
+            <Card v-for="card in 4" :key="card.id"/>
         </div>
 
     </div>
@@ -35,19 +35,18 @@ export default {
 .container{
 /* border: 1px solid red; */
 width: 100%;
-position: absolute;
+/* position: absolute; */
 top: 0;
 /* height: 100vh; */
 
 }
 .container-card{
 /* border: 1px solid blue; */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  display: flex;
   grid-gap: 8px;
-  margin: 0 auto;
-  padding: 10px ;
-  max-width: 1140px;
+  padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 

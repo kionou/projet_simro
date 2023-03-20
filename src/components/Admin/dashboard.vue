@@ -41,7 +41,23 @@
           </ul>
         </li>
         <li>
-          <div class="iocn-link" @submit=" arrow">
+          <div class="iocn-link" @submit=" arrow" >
+            <a href="#">
+              <i class='bx bx-cog'></i>
+              <span class="link_name">paramétrage</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">paramétrage</a></li>
+            <li><router-link to="admin/user">Utilisateurs</router-link></li>
+            <li><a href="#">Enquêteurs</a></li>
+            <li><a href="#">Acteurs</a></li>
+            <li><a href="#">Rôle</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link" @submit=" arrow" >
             <a href="#">
               <i class='bx bxs-cube'></i>
               <span class="link_name">Services</span>
@@ -50,24 +66,9 @@
           </div>
           <ul class="sub-menu">
             <li><a class="link_name" href="#">Services</a></li>
-            <li><router-link to="admin/user">service1</router-link></li>
-            <li><a href="#">service2</a></li>
-            <li><a href="#">service3</a></li>
-          </ul>
-        </li>
-        <li>
-          <div class="iocn-link" @submit=" arrow">
-            <a href="#">
-              <i class='bx bx-book-alt'></i>
-              <span class="link_name">Users</span>
-            </a>
-            <i class='bx bxs-chevron-down arrow'></i>
-          </div>
-          <ul class="sub-menu">
-            <li><a class="link_name" href="#">Users</a></li>
-            <li><a href="#">User 1</a></li>
-            <li><a href="#">User 2</a></li>
-            <li><a href="#">User 3</a></li>
+            <li><a href="#">Service 1</a></li>
+            <li><a href="#">Service 2</a></li>
+            <li><a href="#">Service 3</a></li>
           </ul>
         </li>
         <!-- <li>
@@ -145,24 +146,42 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 import axios from 'axios';
 export default {
   name: 'CptDashboard',
 
   data() {
     return {
+      icons:""
 
     };
   },
 
   mounted() {
+      const icon = document.querySelectorAll('.iocn-link')
+      for (let j = 0; j < icon.length; j++) {
+        icon[j].parentElement.addEventListener("click", () => {
+          icon[j].parentElement.classList.toggle("showMenu");
 
+        });
+
+      }
+
+     let sidebar = document.querySelector(".sidebar");
+      if (window.screen.width >= 768) {
+        sidebar.classList.toggle("close");
+      }
+
+       axios.get("/auth/api/logout/")
+      .then(res =>{
+        console.log('res',res);
+      })
+  
   },
 
   methods: {
     async ouvert(){
-    console.log("ouvert");
     let sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("close");
     },
@@ -177,49 +196,25 @@ export default {
     
     },
      logout(){
-      axios.get("/auth/api/logout")
-      .then(res =>{
-        console.log('res',res);
-      })
-      // this.$store.dispatch('remove_simro_admin') 
-      // this.$router.push('/')
+      // axios.get("http://localhost:8080/auth/api/logout/")
+      // .then(res =>{
+      //   console.log('res',res);
+      // })
+      this.$store.dispatch('remove_simro_admin') 
+      this.$router.push('/')
       console.log('bon');
     }
 
   },
-  computed: {
+  // computed: {
   
-    ...mapGetters([
-      'getSimro_admin'
+  //   ...mapGetters([
+  //     'getSimro_admin'
 
-    ])
-  },
-  setup() {
-    document.addEventListener('DOMContentLoaded', () => {
-      const icon = document.querySelectorAll('.iocn-link')
+  //   ])
+  // },
+ 
 
-      for (let j = 0; j < icon.length; j++) {
-        icon[j].parentElement.addEventListener("click", () => {
-          console.log("arrowParent", icon);
-          icon[j].parentElement.classList.toggle("showMenu");
-
-        });
-
-      }
-      // let sidebar = document.querySelector(".sidebar");
-      let sidebarBtn = document.querySelector(".bx-menu");
-      console.log(sidebarBtn);
-      // if (window.screen.width >= 768) {
-      //   sidebar.classList.toggle("close");
-      // }
-      // sidebarBtn.addEventListener("click", () => {
-      //   console.log('close');
-      //   sidebar.classList.toggle("close");
-      // });
-
-    })
-
-  }
 };
 </script>
 
@@ -577,10 +572,11 @@ export default {
 
 .home-section {
   position: relative;
-  height: 100vh;
+  height: 100%;
   left: 230px;
   width: calc(100% - 230px);
   /* border: 1px solid blue; */
+  padding:10px
 }
 
 .sidebar.close~.home-section {
@@ -589,16 +585,15 @@ export default {
 }
 
 .home-section .home-content {
-  height: 60px;
-  display: flex;
-  align-items: center;
+  height: 100vh;
+  border:1px solid var(--gris2);
+  border-radius: 5px;
+  padding: 10px;
+  overflow: overlay;
+
 }
 
-.home-section .home-content .bx-menu,
-.home-section .home-content .text {
-  color: #11101d;
-  font-size: 35px;
-}
+
 
 .home-section .home-content .bx-menu {
   margin: 0 15px;

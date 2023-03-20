@@ -47,7 +47,7 @@ export default {
     margin: 10px auto;
     display: flex;
     width: max-content;
-   background-color:rgb(0 0 0 / 6%) ; 
+   /* background-color:rgb(0 0 0 / 6%) ;  */
     justify-content: center;
     align-items: center;
   

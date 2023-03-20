@@ -82,17 +82,13 @@ export default {
                     username: this.numero,
                     password: this.password
                 }
-                const config = {
-  headers:{
-     "Access-Control-Allow-Origin": "http://simro-kberthe.pythonanywhere.com" ,
-     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-  }
-};
-                axios.post("http://simro-kberthe.pythonanywhere.com/auth/api/login/", DataUser , config)
+
+                axios.post("http://localhost:8080/auth/api/login/", DataUser )
                     .then(response => {
+                        console.log('eee',response);
                         if (response.data.code == 0) {
                             this.isloading = false
-                            this.message_error = response.data.message
+                            this.message_error = 'Numéro ou Mot de passe incorrect'
                         } else {
                             this.$store.dispatch('simro_admin_token', response.data.token)
                             this.$router.push('/admin')
@@ -154,7 +150,7 @@ header .login {
 }
 .container {
     background-color: var(--blanc);
-    box-shadow: 0px 0px 10px #888888;
+    box-shadow: var(--box-shadow);
     padding: 20px;
     max-width: 350px;
     width: 98%;

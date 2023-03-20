@@ -23,8 +23,10 @@ export default createStore({
 
     
     },
-   async remove_simro_admin(context){
+    remove_simro_admin(context){
         localStorage.removeItem('simro_admin')
+        context.commit('UPDATE_KOTEN',0)
+
         // try {
         //   const data = await axios.get(
         //     "http://localhost:8080/auth/api/logout/"
@@ -36,7 +38,6 @@ export default createStore({
         //   alert(error);
         //   console.log(error);
         // }
-        context.commit('UPDATE_KOTEN',0)
        
     
     }
