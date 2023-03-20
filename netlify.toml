@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/admin"
+  from = "/api/auth/login"
   to = "http://simro-kberthe.pythonanywhere.com/"
   status = 200
   force = true
