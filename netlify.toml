@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/"
-  to = "http://simro-kberthe.pythonanywhere.com"
+  from = "/admin"
+  to = "http://simro-kberthe.pythonanywhere.com/"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
