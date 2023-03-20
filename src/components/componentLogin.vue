@@ -83,7 +83,7 @@ export default {
                     password: this.password
                 }
 
-                axios.post("http://simro-kberthe.pythonanywhere.com/auth/api/login/", DataUser )
+                axios.post("http://localhost:8080/auth/api/login/", DataUser )
                     .then(response => {
                         console.log('eee',response);
                         if (response.data.code == 0) {
