@@ -169,7 +169,7 @@ export default {
       }
 
      let sidebar = document.querySelector(".sidebar");
-      if (window.screen.width >= 768) {
+      if (window.screen.width <= 768) {
         sidebar.classList.toggle("close");
       }
 
