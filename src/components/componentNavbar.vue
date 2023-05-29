@@ -2,7 +2,7 @@
     <div>
         <section class="navbar-1">
             <div class="content">
-                <div class="logo"  @click="$router.push(`/admin`)">
+                <div class="logo"  @click="$router.push(`/`)">
                     <img src="@/assets/images/logoSimro.jpg" alt="">
                 </div>
                 <div class="hamburger">

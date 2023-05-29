@@ -7,6 +7,6 @@ module.exports = defineConfig({
     
      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   },
-     proxy:'http://simro-kberthe.pythonanywhere.com/',
+     proxy:'https://simro-kberthe.pythonanywhere.com/',
   }
 })

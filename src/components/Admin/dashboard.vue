@@ -173,7 +173,7 @@ export default {
         sidebar.classList.toggle("close");
       }
 
-       axios.get("/auth/api/logout/")
+       axios.get("/auth/api/user/")
       .then(res =>{
         console.log('res',res);
       })

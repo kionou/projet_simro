@@ -41,7 +41,7 @@
 <script>
 import Loader from './loader.vue';
 import useVuelidate from '@vuelidate/core'
-import axios from 'axios'
+// import axios from 'axios'
 import { require, lgmin, lgmax, ValidNumeri } from '../../functions/rules'
 export default {
     name: 'ComponentLogin',
@@ -82,22 +82,23 @@ export default {
                     username: this.numero,
                     password: this.password
                 }
+                console.log('datauser',DataUser);
 
-                axios.post("/auth/api/login/", DataUser )
-                    .then(response => {
-                        console.log('eee',response);
-                        if (response.data.code == 0) {
-                            this.isloading = false
-                            this.message_error = 'Numéro ou Mot de passe incorrect'
-                        } else {
-                            this.$store.dispatch('simro_admin_token', response.data.token)
-                            this.$router.push('/admin')
-                        }
-                    })
-                    .catch(error => {
-                        this.errorMessage = error.message;
-                        console.error("There was an error!", error);
-                    });
+                // axios.post("/auth/api/login/", DataUser )
+                //     .then(response => {
+                //         console.log('eee',response);
+                //         if (response.data.code == 0) {
+                //             this.isloading = false
+                //             this.message_error = 'Numéro ou Mot de passe incorrect'
+                //         } else {
+                //             this.$store.dispatch('simro_admin_token', response.data.token)
+                //             this.$router.push('/admin')
+                //         }
+                //     })
+                //     .catch(error => {
+                //         this.errorMessage = error.message;
+                //         console.error("There was an error!", error);
+                //     });
             }
         }
 
